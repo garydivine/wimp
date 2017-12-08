@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.lmig.gfc.wimp.models.Actor;
+import com.lmig.gfc.wimp.models.Award;
 import com.lmig.gfc.wimp.models.Movie;
 
 public class ActorView {
@@ -42,6 +43,10 @@ public class ActorView {
 	}
 	
 	return views;
-}
+	}
+	
+	public List<Award> getAwards() {
+		return actor.getAwards();
+	}
 	
 }

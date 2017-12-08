@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -31,6 +32,9 @@ public class Actor {
 	@JsonIgnore 
 	@ManyToMany(mappedBy = "actors") //Movie is the owner of relationship
 	private List<Movie> movies;
+	
+	@OneToMany(mappedBy = "actor") 
+	private List<Award> awards;
 	
 	public Actor() {}
 	
@@ -78,5 +82,13 @@ public class Actor {
 
 	public void setMovies(List<Movie> movies) {
 		this.movies = movies;
+	}
+
+	public List<Award> getAwards() {
+		return awards;
+	}
+
+	public void setAwards(List<Award> awards) {
+		this.awards = awards;
 	}
 }

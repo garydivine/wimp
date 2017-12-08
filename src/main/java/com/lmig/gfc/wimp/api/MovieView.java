@@ -27,13 +27,4 @@ public class MovieView {
 		return movie.getReleaseDate();
 	}
 	
-//	public List<ActorView> getActors() {
-//		ArrayList<ActorView> views = new ArrayList<ActorView>();
-//		for (Actor actor: movie.getActors()) {
-//			views.add(new ActorView(actor));
-//		}
-//		
-//		return views;
-//	}
-	
 }
