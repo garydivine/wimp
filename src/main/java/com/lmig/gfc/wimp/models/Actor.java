@@ -1,12 +1,16 @@
 package com.lmig.gfc.wimp.models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Actor {
@@ -23,6 +27,10 @@ public class Actor {
 	
 	private Long activeSinceYear;
 	private Date birthDate;
+	
+	@JsonIgnore 
+	@ManyToMany(mappedBy = "actors") //Movie is the owner of relationship
+	private List<Movie> movies;
 	
 	public Actor() {}
 	
@@ -62,5 +70,13 @@ public class Actor {
 	}
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
+	}
+
+	public List<Movie> getMovies() {
+		return movies;
+	}
+
+	public void setMovies(List<Movie> movies) {
+		this.movies = movies;
 	}
 }

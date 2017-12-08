@@ -1,5 +1,6 @@
 package com.lmig.gfc.wimp.api;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -26,10 +27,21 @@ public class ActorsApiController {
 		this.actorRepo = actorRepo;
 	}
 	
-	@GetMapping("")
+	/*@GetMapping("")
 	public List<Actor> getAll() {
 		return actorRepo.findAll();
+	}*/
+	
+	@GetMapping("")
+	public List<ActorView> getAll() {
+		List<Actor> actorList = actorRepo.findAll();
+		ArrayList<ActorView> actorViews = new ArrayList<ActorView>();
+		for (Actor actor: actorList) {
+			actorViews.add(new ActorView(actor));
+		}
+		return actorViews;
 	}
+	
 	
 	@PostMapping("")
 	@ResponseStatus(code = HttpStatus.CREATED) 
@@ -38,8 +50,9 @@ public class ActorsApiController {
 	}
 	
 	@GetMapping("{id}")
-	  public Actor getOne(@PathVariable Long id) { 
-		return actorRepo.findOne(id);
+	  public ActorView getOne(@PathVariable Long id) {  
+		Actor actor = actorRepo.findOne(id);
+		return new ActorView(actor);
 	  }
 	
 	@PutMapping("{id}")
@@ -56,5 +69,7 @@ public class ActorsApiController {
 		
 		return actor; 
 	  }
+	
+	
 
 }

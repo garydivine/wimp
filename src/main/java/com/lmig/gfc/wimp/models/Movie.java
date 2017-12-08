@@ -1,12 +1,14 @@
 package com.lmig.gfc.wimp.models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Movie {
@@ -23,6 +25,9 @@ public class Movie {
 	
 	@Column(length = 500, nullable = false)
 	private String distributor;
+	
+	@ManyToMany
+	private List<Actor> actors;
 	
 	public Movie() {};
 	
@@ -71,6 +76,14 @@ public class Movie {
 
 	public void setDistributor(String distributor) {
 		this.distributor = distributor;
+	}
+
+	public List<Actor> getActors() {
+		return actors;
+	}
+
+	public void setActors(List<Actor> actors) {
+		this.actors = actors;
 	}
 
 }
