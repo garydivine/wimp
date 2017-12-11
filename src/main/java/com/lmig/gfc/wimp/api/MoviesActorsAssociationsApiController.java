@@ -26,7 +26,7 @@ public class MoviesActorsAssociationsApiController {
 	}
 	
 	@PostMapping("")
-	@ResponseStatus(code = HttpStatus.CREATED) // should this really be a 201
+	@ResponseStatus(code = HttpStatus.CREATED)
 	public Movie create(@PathVariable Long movieId, @RequestBody Long actorId) {
 		Movie movie = movieRepo.findOne(movieId);
 		Actor actor = actorRepo.findOne(actorId);

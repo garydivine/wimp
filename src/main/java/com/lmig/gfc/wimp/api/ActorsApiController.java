@@ -27,11 +27,6 @@ public class ActorsApiController {
 		this.actorRepo = actorRepo;
 	}
 	
-	/*@GetMapping("")
-	public List<Actor> getAll() {
-		return actorRepo.findAll();
-	}*/
-	
 	@GetMapping("")
 	public List<ActorView> getAll() {
 		List<Actor> actorList = actorRepo.findAll();
