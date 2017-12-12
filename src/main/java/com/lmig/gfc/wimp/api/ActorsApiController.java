@@ -47,6 +47,9 @@ public class ActorsApiController {
 	@GetMapping("{id}")
 	  public ActorView getOne(@PathVariable Long id) {  
 		Actor actor = actorRepo.findOne(id);
+		if (actor == null) {
+			return null;
+		} 
 		return new ActorView(actor);
 	  }
 	
