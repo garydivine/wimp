@@ -47,13 +47,10 @@ public class ActorAwardsApiControllerTests {
 		ActorView actual = controller.create(actor.getId(), award);
 		
 		// Assert
-		//assertThat(actual.getAwards().get(0)).isSameAs(award);
-		//assertThat(actual.getAwards().size()).isEqualTo(1);
 		System.out.println(actual.getAwards());
 		assertThat(award.getActor()).isEqualTo(actor);
 		verify(actorRepo).findOne(153L);
 		verify(awardRepo).save(award);
-		//verify(awardRepo).setActor(actor);
 		verify(actorRepo).save(actor);
 		
 	}

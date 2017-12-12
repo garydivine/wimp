@@ -50,6 +50,7 @@ public class MoviesActorsAssociationsApiControllerTests {
 		verify(actorRepo).findOne(153L);
 	}
 	
+	@Test
 	public void create_does_not_associate_actor_with_movie() {
 		// Arrange
 		Movie movie = new Movie();
